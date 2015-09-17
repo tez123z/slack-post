@@ -17,7 +17,9 @@ module Slack
 				channel: chan || config[:channel],
 				text: message
 			}
-			if config[:username]
+			if opts[:username]
+				pkt[:username] = opts[:username]
+			elsif config[:username]
 				pkt[:username] = config[:username]
 			end
 			if opts.key?(:icon_url) || config.key?(:icon_url)
@@ -89,7 +91,7 @@ module Slack
 		end
 
 		KnownConfigParams = [:webhook_url, :username, :channel, :subdomain, :token, :icon_url, :icon_emoji].freeze
-		AttachmentParams = [:fallback, :text, :pretext, :color, :fields, :image_url].freeze
+		AttachmentParams = [:fallback, :text, :pretext, :color, :title, :title_link, :fields, :image_url].freeze
 		FieldParams = [:title, :value, :short].freeze
 
 		def self.prune(opts, allowed_elements = KnownConfigParams)
