@@ -22,6 +22,7 @@ module Slack
 			elsif config[:username]
 				pkt[:username] = config[:username]
 			end
+			
 			if opts.key?(:icon_url) || config.key?(:icon_url)
 				pkt[:icon_url] = opts[:icon_url] || config[:icon_url]
 			end
