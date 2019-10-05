@@ -43,7 +43,7 @@ module Slack
 			resp = http.request(req)
 			case resp
 				when Net::HTTPSuccess
-					return true
+					return resp
 				else
 					fail "There was an error while trying to post. Error was: #{resp.body}"
 			end
