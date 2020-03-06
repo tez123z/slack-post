@@ -35,8 +35,8 @@ module Slack
 			uri = URI.parse(post_url)
 			http = Net::HTTP.new(uri.host, uri.port)
  			http.use_ssl = true
- 			http.ssl_version = :TLSv1
- 			http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+#  			http.ssl_version = :TLSv1
+#  			http.verify_mode = OpenSSL::SSL::VERIFY_PEER
 			resp = Net::HTTP.post_form(uri, {payload:pkt.to_json})
 			case resp
 				when Net::HTTPSuccess
