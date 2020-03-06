@@ -34,7 +34,7 @@ module Slack
 			end
 			uri = URI.parse(post_url)
 			http = Net::HTTP.new(uri.host, uri.port)
-			http.use_ssl = false
+			http.use_ssl = true
 			http.ssl_version = :TLSv1
 			http.verify_mode = OpenSSL::SSL::VERIFY_PEER
 			req = Net::HTTP::Post.new(uri.request_uri)
